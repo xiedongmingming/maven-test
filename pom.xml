@@ -17,6 +17,7 @@
 	
 	<modules>
 		<module>apache</module>
+		<module>crypt</module>
 	</modules>
 
 </project>

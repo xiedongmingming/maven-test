@@ -11,9 +11,10 @@
 	<name>crypt</name>
 	<url>http://maven.apache.org</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+  	<parent>
+  		<groupId>org.xiem.com</groupId>
+		<artifactId>parent</artifactId>
+  	</parent>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
