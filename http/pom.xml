@@ -1,0 +1,458 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.xiem.com</groupId>
+	<artifactId>jetty-server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>jetty-server</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+
+		<!-- PROTOBUF -->
+
+		<!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+		<dependency>
+		    <groupId>com.google.protobuf</groupId>
+		    <artifactId>protobuf-java</artifactId>
+		    <version>[3.1.0]</version>
+		</dependency>
+
+		<!-- 存在于私服中
+		<dependency>
+		  	<groupId>com.yosemitecloud.etl.protobuf</groupId>
+		  	<artifactId>EtlProtobuf</artifactId>
+		  	<version>0.0.52</version>
+		</dependency>
+		-->
+		
+		<!-- JETTY -->
+		
+        <dependency>
+            <groupId>org.eclipse.jetty.toolchain.setuid</groupId>
+            <artifactId>jetty-setuid-native</artifactId>
+             <version>1.0.2</version>
+        </dependency>
+        
+        <dependency>
+			<groupId>org.eclipse.jetty.toolchain.setuid</groupId>
+			<artifactId>libsetuid-linux</artifactId>
+			<version>1.0.2</version>
+			<type>so</type>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.toolchain/jetty-test-helper -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.toolchain</groupId>
+		    <artifactId>jetty-test-helper</artifactId>
+		    <version>4.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-alpn-server -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-alpn-server</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-proxy -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-proxy</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-websocket -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-websocket</artifactId>
+		    <version>8.2.0.v20160908</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-servlet -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.websocket</groupId>
+		    <artifactId>websocket-servlet</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.websocket</groupId>
+		    <artifactId>websocket-api</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.alpn/alpn-api -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.alpn</groupId>
+		    <artifactId>alpn-api</artifactId>
+		    <version>1.1.3.v20160715</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-deploy -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-deploy</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.http2/http2-server -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.http2</groupId>
+		    <artifactId>http2-server</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-jmx -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-jmx</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.toolchain.setuid/jetty-setuid-java -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.toolchain.setuid</groupId>
+		    <artifactId>jetty-setuid-java</artifactId>
+		    <version>1.0.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-util</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-server</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-security -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-security</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-servlet</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlets -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-servlets</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-util</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-http</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-io</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-server</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-xml -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-xml</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+<!-- JETTY -->
+		
+        <dependency>
+            <groupId>org.eclipse.jetty.toolchain.setuid</groupId>
+            <artifactId>jetty-setuid-native</artifactId>
+             <version>1.0.2</version>
+        </dependency>
+        
+        <dependency>
+			<groupId>org.eclipse.jetty.toolchain.setuid</groupId>
+			<artifactId>libsetuid-linux</artifactId>
+			<version>1.0.2</version>
+			<type>so</type>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.toolchain/jetty-test-helper -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.toolchain</groupId>
+		    <artifactId>jetty-test-helper</artifactId>
+		    <version>4.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-alpn-server -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-alpn-server</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-proxy -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-proxy</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-websocket -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-websocket</artifactId>
+		    <version>8.2.0.v20160908</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-servlet -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.websocket</groupId>
+		    <artifactId>websocket-servlet</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.websocket</groupId>
+		    <artifactId>websocket-api</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.alpn/alpn-api -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.alpn</groupId>
+		    <artifactId>alpn-api</artifactId>
+		    <version>1.1.3.v20160715</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-deploy -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-deploy</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.http2/http2-server -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.http2</groupId>
+		    <artifactId>http2-server</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.toolchain.setuid/jetty-setuid-java -->
+		<dependency>
+		    <groupId>org.eclipse.jetty.toolchain.setuid</groupId>
+		    <artifactId>jetty-setuid-java</artifactId>
+		    <version>1.0.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-util</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-server</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-security -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-security</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlet -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-servlet</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-servlets -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-servlets</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-util</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util-ajax -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-util-ajax</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-http</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-io</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-server -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-server</artifactId>
+		    <version>9.4.0.v20161208</version>
+		</dependency>
+
+		
+
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<!-- SCOPE为依赖范围(若依赖范围为TEST则表示该依赖只对测试有效)默认值是COMPILE(表示该依赖对主代码和测试代码都有效) -->
+			<!-- SCOPE用来定义依赖范围: -->
+			<scope>test</scope>
+			<!-- 当依赖的范围是SYSTEM的时候MAVEN直接从本地文件系统解析构件 -->
+		</dependency>
+		
+		<!-- HTTP -->
+		<!-- 
+			COMMONS的HTTPCLIENT项目现在是生命的尽头不再被开发.它已由APACHEHTTPCOMPONENTS项目的HTTPCLIENT和HTTPCORE模组取代(提供更好的性能和更大的灵活性)
+		-->
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpcore</artifactId>
+		    <version>4.4.6</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
+		<dependency>
+		    <groupId>commons-httpclient</groupId>
+		    <artifactId>commons-httpclient</artifactId>
+		    <version>3.1</version>
+		</dependency>
+
+		<!-- COMMONS -->
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.5</version>
+		</dependency>
+
+		<!-- JSON -->
+
+		<!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib --> 
+		<dependency>
+		    <groupId>net.sf.json-lib</groupId>
+		    <artifactId>json-lib</artifactId>
+		    <version>2.4</version>
+		    <classifier>jdk15</classifier>
+		</dependency>
+
+<dependency>
+		     <groupId>com.fasterxml.jackson.jaxrs</groupId>
+		     <artifactId>jackson-jaxrs-json-provider</artifactId>
+		     <version>2.4.4</version>
+		</dependency>
+		
+		<dependency>
+		     <groupId>com.fasterxml.jackson.datatype</groupId>
+		     <artifactId>jackson-datatype-guava</artifactId>
+		     <version>2.4.4</version>
+		</dependency>
+		
+		<dependency>
+		     <groupId>com.fasterxml.jackson.core</groupId>
+		     <artifactId>jackson-core</artifactId>
+		     <version>2.4.4</version>
+		</dependency>
+		
+		<dependency>
+		     <groupId>com.fasterxml.jackson.core</groupId>
+		     <artifactId>jackson-databind</artifactId>
+		     <version>2.4.4</version>
+		</dependency>
+		
+		<dependency>
+		     <groupId>com.fasterxml.jackson.core</groupId>
+		     <artifactId>jackson-annotations</artifactId>
+		     <version>2.4.4</version>
+		</dependency>
+
+	</dependencies>
+  
+  
+	<build>
+		
+		<!-- 
+			由于历史原因MAVEN的核心插件之一COMPILER插件默认只支持编译JAVA1.3,因此需要配置该插件使其支持JAVA5
+			声明插件的使用:将某个插件目标绑定到生命周期的某个阶段上
+		-->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- 如果不设置插件版本其效果就和RELEASE一样MAVEN只会解析最新的发布版本构件 -->
+				<!-- 
+					用户可以在声明插件的时候对此插件进行一个全局的配置:这样不管绑定到COMPILE阶段的MAVEN-COMPILER-PLUGIN:COMPILE任务还是
+					绑定到TEST-COMPILER阶段的MAVEN-COMPILER-PLUGIN:TESTCOMPILER任务,就都能够使用该配置,基于JAVA1.5版本进行编译					
+				-->
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+			
+</project>

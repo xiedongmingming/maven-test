@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://TESTNG.org/TESTNG-1.0.dtd" >
+<suite name="Suite1">
+
+	<!-- 可以控制测试用例按顺序执行:当PRESERVE-ORDER="TRUE"时可以保证节点下面的方法是按顺序执行的 -->
+
+	<test name="test12" preserve-order="true">
+		<classes>
+			<class name="TankLearn2.Learn.TestNGLearn1">
+				<methods>
+					<include name="TESTNGLearn3" />
+					<include name="TESTNGLearn1" />
+					<include name="TESTNGLearn2" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="test1">
+		<groups>
+			<run>
+				<include name="functiontest" />
+			</run>
+		</groups>
+	</test>
+	
+	<parameter name="test1" value="Tank" />
+	<parameter name="test1" value="Xiao" />
+	<test name="test12">
+		<classes>
+			<class name="TankLearn2.Learn.ParameterizedTest1" />
+		</classes>
+	</test>
+	
+	<!--
+		TESTNG测试结果报告:
+			测试报告是测试非常重要的部分.TESTNG默认情况下会生产两种类型的测试报告HTML的和XML的.测试报告位于"TEST-OUTPUT"目录下.
+			当然我们也可以设置测试报告的内容级别.VERBOSE="2"标识的就是记录的日志级别,共有0-10的级别,其中0表示无,10表示最详细
+	-->
+	<test name="test12" verbose="2">
+		<classes>
+			<class name="TankLearn2.Learn.TestNGLearn1" />
+		</classes>
+	</test>
+
+</suite>

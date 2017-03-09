@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- 下面的信息用于控制生成的PROTO包(JAVA)在仓库中存放的位置(也是项目工程的信息) -->
+	<groupId>etl.protobuf</groupId>
+	<artifactId>protos</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+  	<name>proto</name>
+  	<url>http://maven.apache.org</url>
+
+  	<properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	</properties>
+
+  	<dependencies>
+   	   	<dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>2.6.1</version>
+       	</dependency>
+  	</dependencies>
+  	
+	<build>
+		<pluginManagement>
+			<plugins>
+			
+				<!-- 用于将PROTO协议文件生成对应JAVA类的插件 -->
+				<plugin>
+				
+					<groupId>com.github.os72</groupId>
+					<artifactId>protoc-jar-maven-plugin</artifactId>
+	          		<version>2.5.0.4</version>
+	          		
+	              	<executions>
+	                	<execution>
+	                     	<phase>generate-sources</phase>
+	                     	
+	                       	<goals>
+	                        	<goal>run</goal>
+	                       	</goals>
+	                       	
+	                       	<configuration>
+	                       	
+	                       		<includeDirectories>
+	                            	<include>src/main/proto</include>
+	                         	</includeDirectories>
+	                         	
+	                           	<inputDirectories>
+	                             	<include>src/main/proto</include>
+	                          	</inputDirectories>
+	                          	
+	                       	</configuration>
+	                   	</execution>
+	            	</executions>
+	       		</plugin>
+	  		</plugins>
+  		</pluginManagement>
+  		
+  		<plugins>
+  			<!-- 上面的只是声明:这里才是真正的配置使用 -->
+            <plugin>
+                <groupId>com.github.os72</groupId>
+                <artifactId>protoc-jar-maven-plugin</artifactId>
+                <version>2.6.1.4</version><!--$NO-MVN-MAN-VER$-->
+            </plugin>
+            
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>com.google.protobuf</pattern>
+                            <shadedPattern>yc.etl.com.google.protobuf</shadedPattern>
+                        </relocation>
+                    </relocations>
+                    <createSourcesJar>true</createSourcesJar>
+                </configuration>
+            </plugin>
+        </plugins>
+  	</build>
+</project>

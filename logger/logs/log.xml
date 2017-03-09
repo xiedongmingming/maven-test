@@ -1,0 +1,5 @@
+2017-02-09 14:24:58,140 - org.xiem.com.log4j.Log4jTest003 -0    [main] DEBUG  - Here is some DEBUG
+2017-02-09 14:24:58,141 - org.xiem.com.log4j.Log4jTest003 -1    [main] INFO   - Here is some INFO 
+2017-02-09 14:24:58,141 - org.xiem.com.log4j.Log4jTest003 -1    [main] WARN   - Here is some WARN 
+2017-02-09 14:24:58,142 - org.xiem.com.log4j.Log4jTest003 -2    [main] ERROR  - Here is some ERROR
+2017-02-09 14:24:58,142 - org.xiem.com.log4j.Log4jTest003 -2    [main] FATAL  - Here is some FATAL

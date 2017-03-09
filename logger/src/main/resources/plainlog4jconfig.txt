@@ -1,0 +1,40 @@
+
+log4j.rootLogger=DEBUG, BLAH
+
+log4j.appender.BLAH=org.apache.log4j.ConsoleAppender
+log4j.appender.BLAH.layout=org.apache.log4j.SimpleLayout
+
+log4j.rootLogger=DEBUG 
+#将DAO层log记录到DAOLog,allLog中 
+log4j.logger.DAO=DEBUG,A2,A4 
+#将逻辑层log记录到BusinessLog,allLog中 
+log4j.logger.Businesslog=DEBUG,A3,A4 
+
+#A1--打印到屏幕上 
+log4j.appender.A1=org.apache.log4j.ConsoleAppender 
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout 
+log4j.appender.A1.layout.ConversionPattern=%-5p [%t] %37c %3x - %m%n 
+
+#A2--打印到文件DAOLog中--专门为DAO层服务 
+log4j.appender.A2=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.A2.file=DAOLog 
+log4j.appender.A2.DatePattern='.'yyyy-MM-dd 
+log4j.appender.A2.layout=org.apache.log4j.PatternLayout 
+log4j.appender.A2.layout.ConversionPattern=[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} 
+method:%l%n%m%n 
+
+#A3--打印到文件BusinessLog中--专门记录逻辑处理层服务log信息 
+log4j.appender.A3=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.A3.file=BusinessLog 
+log4j.appender.A3.DatePattern='.'yyyy-MM-dd 
+log4j.appender.A3.layout=org.apache.log4j.PatternLayout 
+log4j.appender.A3.layout.ConversionPattern=[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} 
+method:%l%n%m%n 
+
+#A4--打印到文件alllog中--记录所有log信息 
+log4j.appender.A4=org.apache.log4j.DailyRollingFileAppender 
+log4j.appender.A4.file=alllog 
+log4j.appender.A4.DatePattern='.'yyyy-MM-dd 
+log4j.appender.A4.layout=org.apache.log4j.PatternLayout 
+log4j.appender.A4.layout.ConversionPattern=[%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} 
+method:%l%n%m%n

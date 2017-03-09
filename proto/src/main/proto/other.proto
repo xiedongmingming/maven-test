@@ -1,0 +1,11 @@
+// package etl;
+
+option java_package = "com.xiem.etl.protobuf";
+option java_outer_classname = "UserProfileMessage";
+
+// 协议的包相关:
+//
+
+message UserProfile {
+	optional int64                 creation_time     = 1;
+}

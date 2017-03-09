@@ -1,0 +1,88 @@
+[INFO ] 2017-02-09 13:48:56,218 method:org.xiem.com.log4j.MainTest.Log4jTest(MainTest.java:112)
+This is info  message.
+[ERROR] 2017-02-09 13:48:56,222 method:org.xiem.com.log4j.MainTest.Log4jTest(MainTest.java:113)
+This is error message.
+[INFO ] 2017-02-09 13:55:25,680 method:org.xiem.com.log4j.Log4jTest000.main(Log4jTest000.java:33)
+Here is some INFO 
+[WARN ] 2017-02-09 13:55:25,683 method:org.xiem.com.log4j.Log4jTest000.main(Log4jTest000.java:34)
+Here is some WARN 
+[ERROR] 2017-02-09 13:55:25,683 method:org.xiem.com.log4j.Log4jTest000.main(Log4jTest000.java:35)
+Here is some ERROR
+[FATAL] 2017-02-09 13:55:25,683 method:org.xiem.com.log4j.Log4jTest000.main(Log4jTest000.java:36)
+Here is some FATAL
+[INFO ] 2017-02-09 13:55:57,252 method:org.xiem.com.log4j.Log4jTest000.main(Log4jTest000.java:33)
+Here is some INFO 
+[WARN ] 2017-02-09 13:55:57,255 method:org.xiem.com.log4j.Log4jTest000.main(Log4jTest000.java:34)
+Here is some WARN 
+[ERROR] 2017-02-09 13:55:57,255 method:org.xiem.com.log4j.Log4jTest000.main(Log4jTest000.java:35)
+Here is some ERROR
+[FATAL] 2017-02-09 13:55:57,255 method:org.xiem.com.log4j.Log4jTest000.main(Log4jTest000.java:36)
+Here is some FATAL
+[DEBUG] 2017-02-09 13:57:00,893 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:30)
+Here is some DEBUG
+[INFO ] 2017-02-09 13:57:00,898 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:31)
+Here is some INFO 
+[WARN ] 2017-02-09 13:57:00,898 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:32)
+Here is some WARN 
+[ERROR] 2017-02-09 13:57:00,898 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:33)
+Here is some ERROR
+[FATAL] 2017-02-09 13:57:00,898 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:34)
+Here is some FATAL
+[DEBUG] 2017-02-09 13:57:21,014 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:30)
+Here is some DEBUG
+[INFO ] 2017-02-09 13:57:21,018 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:31)
+Here is some INFO 
+[WARN ] 2017-02-09 13:57:21,019 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:32)
+Here is some WARN 
+[ERROR] 2017-02-09 13:57:21,019 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:33)
+Here is some ERROR
+[FATAL] 2017-02-09 13:57:21,019 method:org.xiem.com.log4j.Log4jTest001.main(Log4jTest001.java:34)
+Here is some FATAL
+[DEBUG] 2017-02-09 13:58:47,264 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:28)
+Here is some DEBUG
+[INFO ] 2017-02-09 13:58:47,266 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:29)
+Here is some INFO 
+[WARN ] 2017-02-09 13:58:47,266 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:30)
+Here is some WARN 
+[ERROR] 2017-02-09 13:58:47,266 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:31)
+Here is some ERROR
+[FATAL] 2017-02-09 13:58:47,267 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:32)
+Here is some FATAL
+[DEBUG] 2017-02-09 13:58:54,376 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:28)
+Here is some DEBUG
+[INFO ] 2017-02-09 13:58:54,378 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:29)
+Here is some INFO 
+[WARN ] 2017-02-09 13:58:54,379 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:30)
+Here is some WARN 
+[ERROR] 2017-02-09 13:58:54,379 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:31)
+Here is some ERROR
+[FATAL] 2017-02-09 13:58:54,379 method:org.xiem.com.log4j.Log4jTest002.main(Log4jTest002.java:32)
+Here is some FATAL
+[INFO ] 2017-02-09 14:15:28,161 method:org.xiem.com.log4j.Log4jTest003.main(Log4jTest003.java:15)
+Here is some INFO 
+[WARN ] 2017-02-09 14:15:28,164 method:org.xiem.com.log4j.Log4jTest003.main(Log4jTest003.java:16)
+Here is some WARN 
+[ERROR] 2017-02-09 14:15:28,165 method:org.xiem.com.log4j.Log4jTest003.main(Log4jTest003.java:17)
+Here is some ERROR
+[FATAL] 2017-02-09 14:15:28,165 method:org.xiem.com.log4j.Log4jTest003.main(Log4jTest003.java:18)
+Here is some FATAL
+[INFO ] 2017-02-09 14:22:42,324 method:org.xiem.com.log4j.Log4jTest003.main(Log4jTest003.java:15)
+Here is some INFO 
+[WARN ] 2017-02-09 14:22:42,326 method:org.xiem.com.log4j.Log4jTest003.main(Log4jTest003.java:16)
+Here is some WARN 
+[ERROR] 2017-02-09 14:22:42,327 method:org.xiem.com.log4j.Log4jTest003.main(Log4jTest003.java:17)
+Here is some ERROR
+[FATAL] 2017-02-09 14:22:42,327 method:org.xiem.com.log4j.Log4jTest003.main(Log4jTest003.java:18)
+Here is some FATAL
+[ERROR] 2017-02-09 14:54:14,007 method:org.xiem.com.slf4j.Wombat.setTemperature(Wombat.java:19)
+ Temperature set to 1. Old temperature was null. 
+[ERROR] 2017-02-09 14:54:14,009 method:org.xiem.com.slf4j.Wombat.setTemperature(Wombat.java:19)
+ Temperature set to 55. Old temperature was 1. 
+[INFO ] 2017-02-09 14:54:14,010 method:org.xiem.com.slf4j.Wombat.setTemperature(Wombat.java:22)
+ Temperature has risen above 50 degrees. 
+[INFO ] 2017-02-09 15:07:25,002 method:org.xiem.com.logback.MainTest.main(MainTest.java:20)
+TestB-info 
+[WARN ] 2017-02-09 15:07:25,004 method:org.xiem.com.logback.MainTest.main(MainTest.java:21)
+TestB-warn 
+[ERROR] 2017-02-09 15:07:25,004 method:org.xiem.com.logback.MainTest.main(MainTest.java:22)
+TestB-error

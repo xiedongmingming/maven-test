@@ -1,0 +1,4 @@
+INFO - Here is some INFO 
+WARN - Here is some WARN 
+ERROR - Here is some ERROR
+FATAL - Here is some FATAL

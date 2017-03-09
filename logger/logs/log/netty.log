@@ -1,0 +1,3 @@
+2017-02-09 15:59:34.012 [ main ] - [ INFO  ] [ org.xiem.com.logback.MainTest : 22 ] - TestB-info 
+2017-02-09 15:59:34.015 [ main ] - [ WARN  ] [ org.xiem.com.logback.MainTest : 23 ] - TestB-warn 
+2017-02-09 15:59:34.015 [ main ] - [ ERROR ] [ org.xiem.com.logback.MainTest : 24 ] - TestB-error

@@ -1,0 +1,40 @@
+// package etl;	// 这个貌似没用哎
+
+option java_package="com.xiem.etl.protobuf";	// 该文件生成的类所在的包
+option java_outer_classname = "TestProto";		// 该文件生成的类的类名
+
+import public "other.proto";	// 引入的其它协议
+
+message Action {
+    enum EventType {
+        ADVERTISER_BEACON      = 2;
+        THIRD_PARTY_DT         = 3;
+    }
+    optional EventType      event_type              = 1;
+    optional string         ip                      = 2;
+    optional int64          user_id                 = 3;
+    optional int32          account_id              = 4;
+    optional string         exchange_user_id        = 5;
+    optional int64          action_vid              = 6;
+    optional string         server_id               = 7;
+    optional int64          server_timestamp        = 8;
+    optional int32          user_time_zone          = 9;
+    optional string         user_agent              = 10;
+    optional string         device_info             = 11;
+    optional int32          language                = 12;
+    optional string         url                     = 13;
+    optional string         referrer_url            = 14;
+    optional string         action_params           = 15;
+    optional int32          location                = 16;
+    optional string         geo_info                = 17;
+    optional int64          up_creation_time        = 18;
+    optional string         up_views                = 19;
+    optional string         up_clicks               = 20;
+    optional string         up_actions              = 21;
+    optional string         up_segments             = 22;
+    optional string         attribution             = 23;
+
+    optional int32          action_id               = 1005;
+
+    optional UserProfile    user_profile            = 2047;
+}
