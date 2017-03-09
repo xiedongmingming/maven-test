@@ -10,10 +10,11 @@
 
   	<name>apache</name>
   	<url>http://maven.apache.org</url>
-
-  	<properties>
-    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  	</properties>
+  	
+  	<parent>
+  		<groupId>org.xiem.com</groupId>
+		<artifactId>parent</artifactId>
+  	</parent>
 
   	<dependencies>
   	
