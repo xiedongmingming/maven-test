@@ -5,22 +5,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
 
-public class KafkaConsumer extends Thread {
+public class KafkaConsumer extends Thread {// 消费者
 
-	private final ConsumerConnector consumer;
-	private final String topic;
+	private final ConsumerConnector consumer;// 代表消费者类
+
+	private final String topic;// TOPIC
 
 	public KafkaConsumer(String topic) {
-		consumer = kafka.consumer.Consumer.createJavaConsumerConnector(createConsumerConfig());
-		this.topic = topic;
-	}
-
-	private static ConsumerConfig createConsumerConfig() {
 
 		Properties props = new Properties();
 
@@ -30,7 +27,10 @@ public class KafkaConsumer extends Thread {
 		props.put("zookeeper.sync.time.ms", "200");
 		props.put("auto.commit.interval.ms", "1000");
 
-		return new ConsumerConfig(props);
+		consumer = Consumer.createJavaConsumerConnector(new ConsumerConfig(props));// 专用配置
+
+		this.topic = topic;
+
 	}
 
 	@Override
@@ -48,13 +48,14 @@ public class KafkaConsumer extends Thread {
 
 		while (it.hasNext()) {
 
-			System.out.println("receive" + new String(it.next().message()));
+			System.out.println("receive: " + new String(it.next().message()));
 
 			try {
-				sleep(3000);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
 	}
+
 }

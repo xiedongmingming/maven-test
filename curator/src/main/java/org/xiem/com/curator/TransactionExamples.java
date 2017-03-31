@@ -9,7 +9,6 @@ import org.apache.curator.framework.api.transaction.CuratorTransactionResult;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.curator.utils.CloseableUtils;
 
-@SuppressWarnings("deprecation")
 public class TransactionExamples {
 
 	// Curator��֧������һ��crud����ͬ��ͬ��

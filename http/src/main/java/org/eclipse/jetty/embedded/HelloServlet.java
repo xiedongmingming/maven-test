@@ -20,7 +20,6 @@ public class HelloServlet extends HttpServlet {
         this.greeting = greeting;
     }
 
-	@SuppressWarnings("resource")
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

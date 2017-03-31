@@ -1,14 +1,19 @@
 package org.xiem.com.kafka;
 
-public class KafkaProperties {//  Ù–‘≈‰÷√
+public class KafkaProperties {// ÈÖçÁΩÆÂ±ûÊÄß
 
-	final static String zkConnect = "192.168.186.130:8181";
-	final static String groupId = "group1";
-	final static String topic = "topic1";
-	final static String kafkaServerURL = "192.168.186.130";
+	final static String zkConnect = "192.168.186.135:2181";
 
-	final static int kafkaServerPort = 9092;
+	final static String groupId = "group";
+
+	final static String topic = "topic";
+
+	final static String kafkaServerURL = "192.168.186.135";
+
+	final static int kafkaServerPort = 9093;
+
 	final static int kafkaProducerBufferSize = 64 * 1024;
+
 	final static int connectionTimeOut = 20000;
 	final static int reconnectInterval = 10000;
 
@@ -16,4 +21,5 @@ public class KafkaProperties {//  Ù–‘≈‰÷√
 	final static String topic3 = "topic3";
 
 	final static String clientId = "SimpleConsumerDemoClient";
+
 }

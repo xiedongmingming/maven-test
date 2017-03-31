@@ -4,15 +4,12 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
 import com.google.common.io.BaseEncoding;
-import com.yosemitecloud.etl.protobuf.QaxRtbV2_5;
-
-import yc.etl.com.google.protobuf.ByteString;
-import yc.etl.com.google.protobuf.InvalidProtocolBufferException;
 
 public class PriceDecoder {
 
 	private static final String ALGORITHM = "AES";// 使用的加密方式
-	private static final String ENCRIPTION_KEY = "46356afe55fa3cea9cbe73ad442cad47";// 解密秘钥
+	// private static final String ENCRIPTION_KEY =
+	// "46356afe55fa3cea9cbe73ad442cad47";// 解密秘钥
 	private static final char[] HEXCHARS = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 
 	// ********************************************************************************************
@@ -205,28 +202,29 @@ public class PriceDecoder {
 
 	// ********************************************************************************************
 
-	public static void main(String[] args) throws InvalidProtocolBufferException {
+	public static void main(String[] args) {
 
-		// 加密算法是AES128位的ECB模式(PADDING方式为PKC)--正常情况下密文会经过BASE64编码后发送(所以需要首先进行BASE64解码)
-
-		// 注:我们使用的BASE64编码字典表是自己定制的(不要误认为跟其他常用的编码表是一致的)
-
-		byte[] test = { 0x40, (byte) 0xdd, (byte) 0x88, (byte) 0xe1, 0x15, (byte) 0xaa, (byte) 0xb3, 0x4f, (byte) 0xfa,
-				(byte) 0x94, (byte) 0x9d, (byte) 0xfb, 0x24, 0x5e, (byte) 0x8e, (byte) 0x97 };
-
-		QaxRtbV2_5.BidResponse.Settlement.Builder settlementBiulder = QaxRtbV2_5.BidResponse.Settlement.newBuilder();
-		settlementBiulder.setVersion(717171);
-		settlementBiulder.setPrice(ByteString.copyFrom(test));
-
-		BaseEncoding base = BaseEncoding.base64Url().omitPadding().withPadChar('!');// 先获取BASE64编解码器
-
-		System.out.println(base.encode(settlementBiulder.build().toByteArray()));// CPPiKxIQQN2I4RWqs0_6lJ37JF6Olw!!
-
-		byte[] bs = base.decode("CPPiKxIQQN2I4RWqs0_6lJ37JF6Olw!!");// 解码上面得到的密文字节数组
-
-		QaxRtbV2_5.BidResponse.Settlement settlement = QaxRtbV2_5.BidResponse.Settlement.parseFrom(bs);
-		System.out.println(settlement.toString());
-
-		System.out.println(decryptBytes(settlement.getPrice().toByteArray(), toBytes(ENCRIPTION_KEY)));
+		
+//		// 加密算法是AES128位的ECB模式(PADDING方式为PKC)--正常情况下密文会经过BASE64编码后发送(所以需要首先进行BASE64解码)
+//
+//		// 注:我们使用的BASE64编码字典表是自己定制的(不要误认为跟其他常用的编码表是一致的)
+//
+//		byte[] test = { 0x40, (byte) 0xdd, (byte) 0x88, (byte) 0xe1, 0x15, (byte) 0xaa, (byte) 0xb3, 0x4f, (byte) 0xfa,
+//				(byte) 0x94, (byte) 0x9d, (byte) 0xfb, 0x24, 0x5e, (byte) 0x8e, (byte) 0x97 };
+//
+//		QaxRtbV2_5.BidResponse.Settlement.Builder settlementBiulder = QaxRtbV2_5.BidResponse.Settlement.newBuilder();
+//		settlementBiulder.setVersion(717171);
+//		settlementBiulder.setPrice(ByteString.copyFrom(test));
+//
+//		BaseEncoding base = BaseEncoding.base64Url().omitPadding().withPadChar('!');// 先获取BASE64编解码器
+//
+//		System.out.println(base.encode(settlementBiulder.build().toByteArray()));// CPPiKxIQQN2I4RWqs0_6lJ37JF6Olw!!
+//
+//		byte[] bs = base.decode("CPPiKxIQQN2I4RWqs0_6lJ37JF6Olw!!");// 解码上面得到的密文字节数组
+//
+//		QaxRtbV2_5.BidResponse.Settlement settlement = QaxRtbV2_5.BidResponse.Settlement.parseFrom(bs);
+//		System.out.println(settlement.toString());
+//
+//		System.out.println(decryptBytes(settlement.getPrice().toByteArray(), toBytes(ENCRIPTION_KEY)));
 	}
 }

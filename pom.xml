@@ -18,6 +18,7 @@
 	<modules>
 		<module>apache</module>
 		<module>crypt</module>
+		<module>jackson</module>
 	</modules>
 
 </project>

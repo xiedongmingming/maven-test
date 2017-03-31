@@ -12,7 +12,7 @@ import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.ZooKeeper;  
   
-public class WatchClient implements Runnable {// ΪZNODE����WATCHER
+public class WatchClient implements Runnable {// ZNODE����WATCHER
 
 	// ZNODE�ı仯����ֱ��ͨ��EVENT.GETTYPE����ȡ
 	// ʹ��ZK.EXISTS(PATH,WC)��ΪPATH�ڵ�����WATCHER(���нڵ㶼����ʹ��WC��ΪWATCHER)
@@ -40,29 +40,29 @@ public class WatchClient implements Runnable {// ΪZNODE����WATCHER
     }  
   
 	// ********************************************************************************************
-	public WatchClient() throws IOException {// ���캯��
+	public WatchClient() throws IOException {
   
 		zk = new ZooKeeper("192.168.186.128:" + CLIENT_PORT, 21810,
-				new Watcher() {// ע��ļ�����(�����������Ҫ���ڼ��������ص��¼�)
+				new Watcher() {
 					@Override
 					public void process(WatchedEvent event) {
-						System.out.println("��������ʱ���¼�����: " + event.getType());
+						System.out.println("观察到的事件类型: " + event.getType());
 					}
 				});
 	}
 	// ********************************************************************************************
 
     @Override  
-	public void run() {// ����WATCH���߳�
+	public void run() {
 
-		Watcher wc = new Watcher() {// �����������Ҫ���ڼ���ĳ���ڵ�������Ϣ
+		Watcher wc = new Watcher() {
 
             @Override  
             public void process(WatchedEvent event) {
 
-				List<String> nodeListBefore = nodeList;// ������ݸı�֮ǰ�Ľ���б�
+				List<String> nodeListBefore = nodeList;
 
-				if (event.getType() == EventType.NodeDataChanged) {// ���������ݷ����ı�ʱ
+				if (event.getType() == EventType.NodeDataChanged) {
 					System.out.println("node data changed:" + event.getPath());
                 }
 				if (event.getType() == EventType.NodeDeleted) {
@@ -72,7 +72,7 @@ public class WatchClient implements Runnable {// ΪZNODE����WATCHER
 					System.out.println("node created:" + event.getPath());
                 }
   
-				try {// ��ȡ���º��NODELIST
+				try {
                     nodeList = zk.getChildren(event.getPath(), false);
                 } catch (KeeperException e) {
 					System.out.println(event.getPath() + " has no child, deleted.");
@@ -82,7 +82,7 @@ public class WatchClient implements Runnable {// ΪZNODE����WATCHER
 
 				List<String> nodeListNow = nodeList;
 
-				if (nodeListBefore.size() < nodeListNow.size()) {// �����½��
+				if (nodeListBefore.size() < nodeListNow.size()) {
                     for (String str : nodeListNow) {
                         if (!nodeListBefore.contains(str)) {
 							System.out.println("node created:" + event.getPath() + "/" + str);
@@ -92,10 +92,10 @@ public class WatchClient implements Runnable {// ΪZNODE����WATCHER
 			}
 		};
 
-		while (true) {// �������PATH�µĽ��
+		while (true) {
 
 			try {
-				zk.exists(PATH, wc);// ��Ҫ��ص������
+				zk.exists(PATH, wc);
 			} catch (KeeperException | InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -106,7 +106,7 @@ public class WatchClient implements Runnable {// ΪZNODE����WATCHER
 				e.printStackTrace();
 			}
   
-			for (String nodeName : nodeList) {// ��PATH�µ�ÿ����㶼����һ��WATCHER
+			for (String nodeName : nodeList) {
 				try {
 					zk.exists(PATH + "/" + nodeName, wc);
 				} catch (KeeperException | InterruptedException e) {
@@ -115,7 +115,7 @@ public class WatchClient implements Runnable {// ΪZNODE����WATCHER
 			}
               
 			try {
-				Thread.sleep(3000);// SLEEPһ�����CUPռ����
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

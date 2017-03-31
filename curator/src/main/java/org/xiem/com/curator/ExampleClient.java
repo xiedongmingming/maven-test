@@ -13,12 +13,6 @@ public class ExampleClient extends LeaderSelectorListenerAdapter implements Clos
 
 	private final String name;
 
-	// LEADERSELECTOR����С������״̬�ĸı�.���ʵ����ΪLEADER,��Ӧ����ӦSUSPENDED��LOST.��
-	// SUSPENDED״̬����ʱʵ������ٶ����������ӳɹ�֮ǰ�����ܲ�����LEADER��.���LOST״̬����,ʵ��������LEADER,
-	// TAKELEADERSHIP��������.
-	// ��Ҫ:�Ƽ�����ʽ�ǵ��յ�SUSPENDED��LOSTʱ�׳�CANCELLEADERSHIPEXCEPTION�쳣.
-	// ��ᵼ��LEADERSELECTORʵ���жϲ�ȡ��ִ��TAKELEADERSHIP�������쳣.��ǳ���Ҫ,
-	// ����뿼����չLEADERSELECTORLISTENERADAPTER.LEADERSELECTORLISTENERADAPTER�ṩ���Ƽ��Ĵ����߼�.
 	private final LeaderSelector leaderSelector;
 
 	private final AtomicInteger leaderCount = new AtomicInteger();
@@ -30,10 +24,6 @@ public class ExampleClient extends LeaderSelectorListenerAdapter implements Clos
 	}
 
 	public void start() throws IOException {
-
-		// ������ʵ��ȡ���쵼Ȩʱ���LISTENER��TAKELEADERSHIP()����������.
-		// ��TAKELEADERSHIP()����ֻ���쵼Ȩ���ͷ�ʱ�ŷ���.���㲻��ʹ��LEADERSELECTORʵ��ʱӦ�õ�������CLOSE����.
-
 		leaderSelector.start();
 	}
 

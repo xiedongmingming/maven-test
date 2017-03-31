@@ -3,17 +3,15 @@
   	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   	<modelVersion>4.0.0</modelVersion>
 
-  	<groupId>org.xiem.com</groupId>
   	<artifactId>apache</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
   	<packaging>jar</packaging>
-
   	<name>apache</name>
   	<url>http://maven.apache.org</url>
   	
   	<parent>
   		<groupId>org.xiem.com</groupId>
 		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
   	</parent>
 
   	<dependencies>
@@ -34,6 +32,12 @@
 		    <version>3.5</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>18.0</version>
+		</dependency>
   	
   	
 		<dependency>
@@ -127,6 +131,14 @@
 		    <version>2.1.1744488.2</version>
 		</dependency>
 		-->
+
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.10</version>
+		</dependency>
+		
 		<!-- GOOGLE-GUAVA -->
 		
 		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
